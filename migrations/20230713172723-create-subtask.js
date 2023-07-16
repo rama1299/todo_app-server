@@ -1,46 +1,45 @@
-'use strict';
+"use strict";
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Subtasks', {
+    await queryInterface.createTable("Subtasks", {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       userId: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       taskId: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       subtaskName: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       description: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       dueDate: {
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
       },
       isPriority: {
-        type: Sequelize.BOOLEAN
+        type: Sequelize.BOOLEAN,
       },
       status: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       createdAt: {
-        allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
-      }
+        type: Sequelize.DATE,
+      },
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Subtasks');
-  }
+    await queryInterface.dropTable("Subtasks");
+  },
 };
