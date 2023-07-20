@@ -22,7 +22,7 @@ module.exports = {
         type: Sequelize.STRING,
       },
       dueDate: {
-        type: Sequelize.DATE,
+        type: Sequelize.DATEONLY,
       },
       isPriority: {
         type: Sequelize.BOOLEAN,

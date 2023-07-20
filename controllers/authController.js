@@ -17,13 +17,10 @@ class authController {
         throw { name: "EmailAlreadyExists" };
       }
 
-      const salt = bcrypt.genSaltSync(10);
-      const hashPassword = bcrypt.hashSync(password, salt);
-
       const user = await User.create({
         username,
         email,
-        password: hashPassword,
+        password,
       });
 
       if (!user) {
@@ -74,6 +71,7 @@ class authController {
         token,
         username: findUser.username,
         id: findUser.id,
+        message: "Login success!",
       });
     } catch (err) {
       next(err);
@@ -96,11 +94,11 @@ class authController {
       }
 
       const salt = bcrypt.genSaltSync(10);
-      const hashNewPassword = bcrypt.hashSync(newPassword, salt);
+      const hashPassword = bcrypt.hashSync(newPassword, salt);
 
       const userUpdate = await User.update(
         {
-          password: hashNewPassword,
+          password: hashPassword,
         },
         {
           where: { email },

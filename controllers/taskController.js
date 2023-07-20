@@ -166,9 +166,9 @@ class taskController {
         throw { name: "ErrorNotFound" };
       }
 
-      if (!isPriority) {
-        throw { name: "IncompleteData" };
-      }
+      // if (!isPriority) {
+      //   throw { name: "IncompleteData" };
+      // }
 
       const data = await Task.update(
         {

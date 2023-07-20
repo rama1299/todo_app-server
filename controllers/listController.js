@@ -50,7 +50,7 @@ class listController {
 
       const data = await List.findOne({
         where: {
-          [Op.and]: [{ userId: userId }, { id: listId }],
+          [Op.and]: [{ userId: userId }, { id }],
         },
         include: [
           {
@@ -155,9 +155,9 @@ class listController {
       const { id } = req.params;
       const { isFavorites } = req.body;
 
-      if (!isFavorites) {
-        throw { name: "IncompleteData" };
-      }
+      // if (!isFavorites) {
+      //   throw { name: "IncompleteData" };
+      // }
 
       const existingData = await List.findOne({
         where: {
